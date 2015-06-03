@@ -24,7 +24,7 @@ var childProcess = require('child_process');
 var childArgs = [
     path.join(__dirname, 'simple_phantom.js')
 ];
-var child = childProcess.execFile('/Users/serhiyshyyko/Sdk/phantomjs-2.0.0-macosx/bin/phantomjs', childArgs);
+var child = childProcess.execFile('phantomjs', childArgs);
 child.stdout.on('data', function (data) {
     console.log(data.toString());
 });
