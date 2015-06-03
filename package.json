@@ -1,0 +1,25 @@
+{
+  "name": "phantomsocketio",
+  "version": "0.0.1",
+  "description": "Simple socket.io integration with phantom",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShyykoSerhiy/PhantomSocketIo.git"
+  },
+  "keywords": [
+    "phantom.js",
+    "phantom",
+    "socket",
+    "socket.io"
+  ],
+  "author": "shyyko.serhiy@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ShyykoSerhiy/PhantomSocketIo/issues"
+  },
+  "homepage": "https://github.com/ShyykoSerhiy/PhantomSocketIo"
+}
