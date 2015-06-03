@@ -56,6 +56,27 @@ child.stdout.on('data', function (data) {
 });
 ```
 
+##Running the example
+
+```
+git clone https://github.com/ShyykoSerhiy/phantom-socketio
+cd phantom-socketio
+npm install
+node demo/simple_node.js
+```
+expected output
+```
+a user connected
+Message from node received 0
+
+message from phantom received 0
+Message from node received 1
+
+message from phantom received 1
+Message from node received 2
+...
+```
+
 ##How it works
 
 phantom-socketio opens separate dummy page with socket.io library. On this page it initializes socket.io.

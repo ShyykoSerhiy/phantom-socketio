@@ -8,7 +8,7 @@ phantomSocket.initialize(indexJsDirectoryPath, 'http://localhost:3000', function
     var count = 0;
     phantomSocket.on('messageFromNode', function(data){
         console.log('Message from node received', data);
-        phantomSocket.emit('messageFromPhantom', count)
+        phantomSocket.emit('messageFromPhantom', count);
         count++;
     });
 

@@ -1,11 +1,12 @@
 (function () {
     var fs = require('fs');
+    var webpage = require('webpage');
     var page;
     var initialized;
     var onListeners = {};
 
     exports.initialize = function (indexJsDirectory, url, callback) {
-        page = require('webpage').create();
+        page = webpage.create();
         page.open(indexJsDirectory + fs.separator + 'index.html', function (status) {
             var opened = status === 'success';
             if (opened) {
