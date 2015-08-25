@@ -33,9 +33,17 @@
     };
     exports.emit = function (name, message) {
         checkInitialized();
-        page.evaluate(function (name, message) {
-            window.socket.emit(name, message)
+        var exception = page.evaluate(function (name, message) {
+            try {
+                window.socket.emit(name, message);
+            } catch (e) {
+                return e;
+            }
+            return null;
         }, name, message);
+        if (exception != null) {
+            throw exception;
+        }
     };
 
     function webpageInitialize(url) {
