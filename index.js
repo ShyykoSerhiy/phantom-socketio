@@ -38,7 +38,7 @@
             return true;
         }, name, message);
         if (success !== true) { 
-            throw new Error('Fail while emitting the message.');
+            throw new Error('Failure while emitting the message.');
         }
     };
 
