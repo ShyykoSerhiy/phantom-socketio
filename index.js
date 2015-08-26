@@ -33,16 +33,12 @@
     };
     exports.emit = function (name, message) {
         checkInitialized();
-        var exception = page.evaluate(function (name, message) {
-            try {
-                window.socket.emit(name, message);
-            } catch (e) {
-                return e;
-            }
-            return null;
+        var success = page.evaluate(function (name, message) {
+            window.socket.emit(name, message);
+            return true;
         }, name, message);
-        if (exception != null) {
-            throw exception;
+        if (success !== true) { 
+            throw new Error('Fail while emitting the message.');
         }
     };
 
