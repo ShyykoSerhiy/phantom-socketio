@@ -33,9 +33,13 @@
     };
     exports.emit = function (name, message) {
         checkInitialized();
-        page.evaluate(function (name, message) {
-            window.socket.emit(name, message)
+        var success = page.evaluate(function (name, message) {
+            window.socket.emit(name, message);
+            return true;
         }, name, message);
+        if (success !== true) { 
+            throw new Error('Failure while emitting the message.');
+        }
     };
 
     function webpageInitialize(url) {
