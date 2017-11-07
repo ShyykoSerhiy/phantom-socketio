@@ -1,4 +1,4 @@
-var phantomSocket = require('phantom-socketio');
+var phantomSocket = require('../index.js');
 var fs = require('fs');
 var system = require('system');
 var simpleJsPath = system.args[0];
@@ -13,5 +13,3 @@ phantomSocket.initialize(indexJsDirectoryPath, 'http://localhost:3000', function
     });
 
 });
-
-

@@ -22,10 +22,10 @@ var path = require('path');
 var childProcess = require('child_process');
 
 var childArgs = [
+    '--local-to-remote-url-access=true',
     path.join(__dirname, 'simple_phantom.js')
 ];
 var child = childProcess.execFile('phantomjs', childArgs);
 child.stdout.on('data', function (data) {
     console.log(data.toString());
 });
-
