@@ -10,6 +10,7 @@
         page.open(indexJsDirectory + fs.separator + 'index.html', function (status) {
             var opened = status === 'success';
             if (opened) {
+                loadSocketio(page);
                 webpageInitialize(url);
                 initialized = true;
                 callback();
@@ -37,10 +38,17 @@
             window.socket.emit(name, message);
             return true;
         }, name, message);
-        if (success !== true) { 
+        if (success !== true) {
             throw new Error('Failure while emitting the message.');
         }
     };
+
+    function loadSocketio(page) {
+        if ( !page.injectJs('./node_modules/socket.io-client/dist/socket.io.js') &&
+             !page.injectJs('../socket.io-client/dist/socket.io.js') ) {
+            throw new Error('socket.io-client dependency not found!');
+        }
+    }
 
     function webpageInitialize(url) {
         page.evaluate(function (url) {
