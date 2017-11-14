@@ -1,7 +1,7 @@
 # phantom-socketio
-This simple library provides the ability to use socket.io-client library inside PhantomJS. 
+This simple library provides the ability to use socket.io-client library inside PhantomJS.
 
-##Example on PhantomJS
+## Example on PhantomJS
 
 ```js
 var phantomSocket = require('../index.js');
@@ -21,7 +21,7 @@ phantomSocket.initialize(indexJsDirectoryPath, 'http://localhost:3000', function
 });
 ```
 
-##Example on Node.js
+## Example on Node.js
 
 ```js
 //starting socket io server
@@ -48,15 +48,16 @@ var path = require('path');
 var childProcess = require('child_process');
 
 var childArgs = [
+    '--local-to-remote-url-access=true',
     path.join(__dirname, 'simple_phantom.js')
 ];
-var child = childProcess.execFile('/Users/serhiyshyyko/Sdk/phantomjs-2.0.0-macosx/bin/phantomjs', childArgs);
+var child = childProcess.execFile('phantomjs', childArgs);
 child.stdout.on('data', function (data) {
     console.log(data.toString());
 });
 ```
 
-##Running the example
+## Running the example
 
 ```
 git clone https://github.com/ShyykoSerhiy/phantom-socketio
@@ -77,10 +78,10 @@ Message from node received 2
 ...
 ```
 
-##How it works
+## How it works
 
 phantom-socketio opens separate dummy page with socket.io library. On this page it initializes socket.io.
 
-##License
+## License
 
 [MIT License](http://opensource.org/licenses/mit-license.php).
